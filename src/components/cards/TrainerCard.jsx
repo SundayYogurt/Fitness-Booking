@@ -1,6 +1,9 @@
 import React from 'react'
 import { Navigate, useNavigate } from 'react-router'
+import { useAuthContext } from '../../context/UserContextProvider';
 const TrainerCard = () => {
+const { userInfo } = useAuthContext
+const role = userInfo?.role;
 const navigate = useNavigate()
   return (
     <div> 
@@ -22,7 +25,8 @@ const navigate = useNavigate()
                 + Create New Class
               </button>
 
-              <button
+             
+                <button
                 className="btn btn-outline w-full"
                 onClick={() => navigate("/my-classes")}
               >

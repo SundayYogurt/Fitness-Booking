@@ -79,84 +79,93 @@ const Register = () => {
     }
   };
 
-  return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="flex w-full max-w-6xl">
+return (
+  <div className="min-h-screen flex items-center justify-center px-4">
+    <div className="flex w-full max-w-6xl flex-col md:flex-row">
 
-        {/* ซ้าย: ฟอร์ม Register */}
-        <div className="w-1/2 flex justify-center items-center">
-          <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-8 shadow-md">
-            <legend className="fieldset-legend">Register</legend>
-
-            <form onSubmit={handleSubmit}>
-              <label className="label">Username</label>
-              <input
-                type="text"
-                name="username"
-                required
-                value={userForm.username}
-                className="input w-full"
-                placeholder="Your name"
-                onChange={handleChange}
-              />
-
-              <label className="label mt-2">Email</label>
-              <input
-                type="email"
-                name="email"
-                required
-                value={userForm.email}
-                className="input w-full"
-                placeholder="Email"
-                onChange={handleChange}
-              />
-
-              <label className="label mt-2">Phone</label>
-              <input
-                type="text"
-                name="phone"
-                required
-                value={userForm.phone}
-                className="input w-full"
-                placeholder="Your phone number"
-                onChange={handleChange}
-              />
-
-              <label className="label mt-2">Password</label>
-              <input
-                type="password"
-                name="password"
-                required
-                value={userForm.password}
-                className="input w-full"
-                placeholder="Password"
-                onChange={handleChange}
-              />
-
-              <button className="btn btn-neutral mt-6 w-full" type="submit">
-                Create Account
-              </button>
-            </form>
-
-            <div className="flex justify-between mt-4 text-sm">
-              <span>Already have an account?</span>
-              <a className="link link-hover" href="/login">
-                Back to Login
-              </a>
-            </div>
-          </fieldset>
-        </div>
-
-        {/* ขวา: Hero Text */}
-        <div className="w-1/2 flex flex-col justify-center items-center text-center px-8">
-          <h1 className="text-4xl font-bold">Join us today!</h1>
-          <p className="text-xl mt-4 text-base-content/70">
-            Create your account and start booking your favorite fitness classes.
-          </p>
-        </div>
+          {/* Hero Text  */}
+      <div className="md:hidden lg:hidden flex-col justify-center items-center text-center mb-10">
+        <h1 className="text-4xl font-bold">Join us today!</h1>
+        <p className="text-xl mt-4 text-base-content/70">
+          Create your account and start booking your favorite fitness classes.
+        </p>
       </div>
+
+      {/* ฟอร์ม Register */}
+      <div className="w-full md:w-1/2 flex justify-center items-center">
+        <fieldset className="fieldset  border-base-300 rounded-box w-full max-w-sm border p-8 shadow-md">
+          <legend className="fieldset-legend text-xl">Register</legend>
+
+          <form onSubmit={handleSubmit}>
+            <label className="label">Username</label>
+            <input
+              type="text"
+              name="username"
+              required
+              value={userForm.username}
+              className="input w-full"
+              placeholder="Your name"
+              onChange={handleChange}
+            />
+
+            <label className="label mt-2">Email</label>
+            <input
+              type="email"
+              name="email"
+              required
+              value={userForm.email}
+              className="input w-full"
+              placeholder="Email"
+              onChange={handleChange}
+            />
+
+            <label className="label mt-2">Phone</label>
+            <input
+              type="text"
+              name="phone"
+              required
+              value={userForm.phone}
+              className="input w-full"
+              placeholder="Your phone number"
+              onChange={handleChange}
+            />
+
+            <label className="label mt-2">Password</label>
+            <input
+              type="password"
+              name="password"
+              required
+              value={userForm.password}
+              className="input w-full"
+              placeholder="Password"
+              onChange={handleChange}
+            />
+
+            <button className="btn btn-neutral mt-6 w-full" type="submit">
+              Create Account
+            </button>
+          </form>
+
+          <div className="flex justify-between mt-4 text-sm">
+            <span>Already have an account?</span>
+            <a className="link link-hover" href="/login">
+              Back to Login
+            </a>
+          </div>
+        </fieldset>
+      </div>
+
+      {/* Hero Text  */}
+      <div className="hidden md:flex w-1/2 flex-col justify-center items-center text-center px-8">
+        <h1 className="text-4xl font-bold">Join us today!</h1>
+        <p className="text-xl mt-4 text-base-content/70">
+          Create your account and start booking your favorite fitness classes.
+        </p>
+      </div>
+
     </div>
-  );
+  </div>
+);
 };
 
 export default Register;

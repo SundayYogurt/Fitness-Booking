@@ -52,7 +52,7 @@ const Login = () => {
     }
 
   } catch (error) {
-    // 🔥 ตรงนี้แหละ สำคัญที่สุด
+    
     if (error.response) {
       const status = error.response.status;
       const message = error.response.data?.message;
@@ -92,56 +92,71 @@ const Login = () => {
 
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="flex w-full max-w-6xl">
-        {/* ซ้าย: ฟอร์ม Login */}
-        <div className="w-1/2 flex justify-center items-center">
-          <fieldset className="fieldset  border-base-300 rounded-box w-xs border p-8 shadow-md">
-            <legend className="fieldset-legend text-xl  ">Login</legend>
+  <div className="min-h-screen flex items-center justify-center px-4">
+    <div className="flex w-full max-w-6xl flex-col md:flex-row">
 
-            <label className="label">Username</label>
-            <input
-              type="text"
-              className="input w-full"
-              placeholder="Username"
-              name="username"
-              onChange={handleChange}
-              value={user.username}
-            />
-
-            <label className="label mt-2">Password</label>
-            <input
-              type="password"
-              className="input w-full"
-              placeholder="Password"
-              name="password"
-              value={user.password}
-              onChange={handleChange}
-            />
-
-            <button className="btn btn-neutral mt-6 w-full" onClick={handleSubmit}>Login</button>
-
-            <div className="flex justify-between mt-4 text-sm">
-              <a className="link link-hover" href="/register">
-                Not a member?
-              </a>
-              <a className="link link-hover" href="#">
-                Forgot password?
-              </a>
-            </div>
-          </fieldset>
-        </div>
-
-        {/* ขวา: Hero Text */}
-        <div className="w-1/2 flex flex-col justify-center items-center text-center px-8">
-          <h1 className="text-4xl font-bold">Welcome to our website!</h1>
-          <p className="text-xl mt-4 text-base-content/70">
-            We hope you will enjoy our services.
-          </p>
-        </div>
+            {/* Hero Text */}
+      <div className="md:hidden lg:hidden flex-col justify-center items-center text-center mb-10 ">
+        <h1 className="text-4xl font-bold">Welcome to our website!</h1>
+        <p className="text-xl mt-4 text-base-content/70">
+          We hope you will enjoy our services.
+        </p>
       </div>
+
+      {/* ฟอร์ม Login */}
+      <div className="w-full md:w-1/2 flex justify-center items-center">
+        <fieldset className="fieldset border-base-300 rounded-box w-full max-w-sm border p-8 shadow-md">
+          <legend className="fieldset-legend text-xl">Login</legend>
+
+          <label className="label">Username</label>
+          <input
+            type="text"
+            className="input w-full"
+            placeholder="Username"
+            name="username"
+            onChange={handleChange}
+            value={user.username}
+          />
+
+          <label className="label mt-2">Password</label>
+          <input
+            type="password"
+            className="input w-full"
+            placeholder="Password"
+            name="password"
+            value={user.password}
+            onChange={handleChange}
+          />
+
+          <button
+            className="btn btn-neutral mt-6 w-full"
+            onClick={handleSubmit}
+          >
+            Login
+          </button>
+
+          <div className="flex justify-between mt-4 text-sm">
+            <a className="link link-hover" href="/register">
+              Not a member?
+            </a>
+            <a className="link link-hover" href="#">
+              Forgot password?
+            </a>
+          </div>
+        </fieldset>
+      </div>
+
+      {/* Hero Text */}
+      <div className="hidden md:flex w-1/2 flex-col justify-center items-center text-center px-8">
+        <h1 className="text-4xl font-bold">Welcome to our website!</h1>
+        <p className="text-xl mt-4 text-base-content/70">
+          We hope you will enjoy our services.
+        </p>
+      </div>
+
     </div>
-  );
-};
+  </div>
+);
+}
 
 export default Login;

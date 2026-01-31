@@ -33,7 +33,7 @@ const MyClasses = () => {
     fetchMyClasses();
   }, []);
 
-  // 🗑️ delete class
+  //  delete class
   const handleDelete = async (id) => {
     const confirm = await Swal.fire({
       title: "ยืนยันการลบ?",

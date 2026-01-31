@@ -10,6 +10,8 @@ import UpdateClass from "../pages/classes/UpdateClass";
 import TrainerSignup from "../pages/auth/TrainerSignup";
 import ApproveTrainer from "../pages/admin/ApproveTrainer";
 import MyClasses from "../pages/classes/MyClasses";
+import ProtectedRoute from "./ProtectedRoute";
+import Forbidden from "../pages/auth/Forbidden";
 
 const router = createBrowserRouter([
   {
@@ -20,19 +22,21 @@ const router = createBrowserRouter([
       // Auth
       { path: "/login", element: <Login/>},
       { path: "/register", element: <Register/>},
-      { path: "/become-trainer", element: <TrainerSignup/>},
+      { path: "/become-trainer", element: <ProtectedRoute><TrainerSignup/></ProtectedRoute>},
+      { path: "/403", element: <Forbidden/>},
 
       //Bookings
-      { path: "/booking/:classId", element: <Booking/>},
-      { path: "/my-bookings", element: <MyBookings/>},
+      { path: "/booking/:classId", element: <ProtectedRoute roles={["user"]}><Booking/></ProtectedRoute>},
+      { path: "/my-bookings", element: <ProtectedRoute roles={["user"]}><MyBookings/></ProtectedRoute>},
         
       //Classes
-      { path: "/create-class", element: <CreateClass/>},
-      { path: "/update-class/:id", element: <UpdateClass/>},
-      { path: "/my-classes", element: <MyClasses/>},
+      { path: "/create-class", element:  <ProtectedRoute roles={["trainer", "admin"]}><CreateClass/></ProtectedRoute>},
+      { path: "/update-class/:id", element: <ProtectedRoute roles={["trainer", "admin"]}><UpdateClass/></ProtectedRoute>},
+      { path: "/my-classes", element: <ProtectedRoute roles={["trainer", "admin"]}><MyClasses/></ProtectedRoute>},
+
 
       //admin
-        {path: "/approve-trainer", element: <ApproveTrainer/>}
+        {path: "/approve-trainer", element: <ProtectedRoute roles={["admin"]}><ApproveTrainer/></ProtectedRoute>}
     ],
   },
 ]);
