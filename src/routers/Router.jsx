@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router";
 import MainLayout from "../layouts/Mainlayout";
-import Home from "../pages/home";
+import Home from "../pages/Home";
 import Login from "../pages/auth/Login";
 import Register from "../pages/auth/Register";
 import Booking from "../pages/bookings/Booking";
@@ -30,8 +30,6 @@ const router = createBrowserRouter([
       { path: "/create-class", element: <CreateClass/>},
       { path: "/update-class/:id", element: <UpdateClass/>},
       { path: "/my-classes", element: <MyClasses/>},
-
-
 
       //admin
         {path: "/approve-trainer", element: <ApproveTrainer/>}
